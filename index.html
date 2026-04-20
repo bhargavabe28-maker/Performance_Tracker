@@ -1,0 +1,157 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Daily Performance Tracker</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <main id="app-content" class="app">
+      <header class="header">
+        <div class="header-content">
+          <div class="header-left">
+           
+            <h1 class="title">📊 Daily Performance Tracker</h1>
+            <p class="subtitle">Track your daily tasks and monitor your progress</p>
+          </div>
+            <div class="streak-counter" id="streak-counter">
+              <span class="streak-emoji">🔥</span>
+              <span class="streak-number" id="streak-number">0</span>
+              <span class="streak-label">day streak</span>
+            </div>
+          </div>
+        </div>
+        <div class="header-settings">
+          <div class="theme-selector">
+            <label for="theme-select">Theme:</label>
+            <select id="theme-select">
+              <option value="soft-gradient">Soft Gradient</option>
+              <option value="dark-mode">Dark Mode</option>
+            </select>
+          </div>
+        </div>
+      </header>
+
+      <!-- Navigation Tabs -->
+      <div class="tabs-container">
+        <button class="tab-btn active" data-tab="today">Today's Tasks</button>
+        <button class="tab-btn" data-tab="dashboard">Dashboard</button>
+        <button class="tab-btn" data-tab="history">History</button>
+        <button class="tab-btn" data-tab="timetable">Timetable</button>
+      </div>
+
+      <!-- TODAY'S TASKS TAB -->
+      <section id="today" class="tab-content active">
+        <div class="card">
+          <div class="date-header">
+            <button id="prev-day" class="date-btn">← Prev</button>
+            <h2 id="current-date" class="date-title">Today</h2>
+            <button id="next-day" class="date-btn">Next →</button>
+          </div>
+          <div id="date-message" class="date-message"></div>
+
+          <div class="task-input-wrapper">
+            <input id="task-input" class="task-input" type="text" placeholder="Add a new task..." />
+            <button id="add-task-btn" class="add-task-btn">Add Task</button>
+          </div>
+
+          <div class="progress-wrap">
+            <div class="progress-info">
+              <span id="progress-text">0% completed</span>
+              <span id="count-text">0 / 0</span>
+            </div>
+            <div class="progress-bar">
+              <div id="progress-fill" class="progress-fill" style="width:0%"></div>
+            </div>
+          </div>
+
+          <ul id="task-list" class="task-list" aria-live="polite"></ul>
+
+          <div style="display: flex; gap: 10px; margin-top: 25px;">
+            <button id="import-timetable-btn" class="add-task-btn" style="flex: 1; background: var(--secondary); opacity: 0.9;" onclick="importTodayFromTimetable()">📥 Import from Timetable</button>
+            <button id="reset-btn" class="add-task-btn" style="flex: 1; background: var(--danger); opacity: 0.8;" onclick="resetTasks()">🧹 Reset Today</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- DASHBOARD TAB -->
+      <section id="dashboard" class="tab-content">
+        <div class="card">
+          <h2>Performance Overview</h2>
+          
+          <div class="chart-grid">
+            <div class="chart-container">
+              <h3>Overall Performance</h3>
+              <canvas id="pie-chart"></canvas>
+            </div>
+            
+            <div class="chart-container">
+              <h3>Last 7 Days Performance</h3>
+              <canvas id="bar-chart"></canvas>
+            </div>
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat-card">
+              <span class="stat-label">Total Completed</span>
+              <span id="total-completed" class="stat-value">0</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">Total Half Done</span>
+              <span id="total-half-done" class="stat-value">0</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">Total Not Done</span>
+              <span id="total-not-done" class="stat-value">0</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- HISTORY TAB -->
+      <section id="history" class="tab-content">
+        <div class="card">
+          <h2>Task History</h2>
+          <div id="history-list" class="history-list">
+            <p class="empty-message">No task history yet</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- TIMETABLE TAB -->
+      <section id="timetable" class="tab-content">
+        <div class="card">
+          <div class="timetable-header">
+            <h2>Weekly Timetable (Intense Study Focus)</h2>
+            <div class="timetable-actions">
+              <button id="reset-timetable-btn" class="add-task-btn" style="background: var(--danger); opacity: 0.8;">🔄 Reset to Intense Default</button>
+              <button id="edit-timetable-btn" class="add-task-btn">Edit Timetable</button>
+              <button id="save-timetable-btn" class="add-task-btn success" style="display:none">Save Changes</button>
+            </div>
+          </div>
+          
+          <div class="day-selector">
+            <button class="day-btn active" data-day="Monday">Mon</button>
+            <button class="day-btn" data-day="Tuesday">Tue</button>
+            <button class="day-btn" data-day="Wednesday">Wed</button>
+            <button class="day-btn" data-day="Thursday">Thu</button>
+            <button class="day-btn" data-day="Friday">Fri</button>
+            <button class="day-btn" data-day="Saturday">Sat</button>
+            <button class="day-btn" data-day="Sunday">Sun</button>
+          </div>
+
+          <div id="dynamic-timetable-container" class="timetable-container">
+            <!-- Table will be injected by JS -->
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">Daily Performance Tracker • Works Offline • Mobile Friendly</footer>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
