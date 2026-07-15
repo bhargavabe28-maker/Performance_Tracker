@@ -19,60 +19,72 @@ const STATUS = {
 // --- DEFAULT TIMETABLE (PERSONALIZED BATCH 1) ---
 const defaultTimetable = {
     "Monday": [
-        { time: "09:00 - 11:30", activity: "EM-IV (Engineering Mathematics - IV): Work through complex mathematical formulas, theorems, and practice problem sets. Focus on high-weightage units." },
-        { time: "11:30 - 12:00", activity: "Break" },
-        { time: "12:00 - 14:00", activity: "DAA (Design and Analysis of Algorithms): Analyze algorithm complexities (O, Ω, Θ notations). Review divide-and-conquer and greedy method paradigms." },
-        { time: "14:00 - 15:00", activity: "Lunch Break" },
-        { time: "15:00 - 17:00", activity: "DAA Lab Revision: Write and dry-run code for algorithms studied in the morning session. Understand the underlying logic of lab experiments." }
+        { time: "06:00 AM – 06:30 AM", activity: "Wake up & Freshen up" },
+        { time: "06:30 AM – 07:15 AM", activity: "Workout" },
+        { time: "07:15 AM – 08:00 AM", activity: "Breakfast & Get Ready" },
+        { time: "09:00 AM – 01:00 PM", activity: "College Classes" },
+        { time: "01:00 PM – 02:00 PM", activity: "Lunch & Rest" },
+        { time: "02:00 PM – 04:00 PM", activity: "Java Programming" },
+        { time: "04:00 PM – 04:30 PM", activity: "Break" },
+        { time: "04:30 PM – 06:00 PM", activity: "DSA Practice" },
+        { time: "06:00 PM – 07:00 PM", activity: "Walk/Gym" },
+        { time: "07:00 PM – 08:00 PM", activity: "Dinner" },
+        { time: "08:00 PM – 09:30 PM", activity: "College Revision & Assignments" },
+        { time: "09:30 PM – 10:30 PM", activity: "Read Java Notes / Build Small Programs" },
+        { time: "10:30 PM", activity: "Sleep" }
     ],
     "Tuesday": [
-        { time: "09:00 - 11:30", activity: "ALC (Automata Languages and Computation): Practice designing Finite Automata, DFAs, NFAs, and regular expressions. Heavy pen-and-paper practice." },
-        { time: "11:30 - 12:00", activity: "Break" },
-        { time: "12:00 - 14:00", activity: "OS (Operating Systems): Study process synchronization, CPU scheduling algorithms, and memory management." },
-        { time: "14:00 - 15:00", activity: "Lunch Break" },
-        { time: "15:00 - 17:00", activity: "MEA (Managerial Economics & Accountancy): Review market structures, demand forecasting, and basic accounting principles." }
+        { time: "06:00 AM – 07:00 AM", activity: "Workout" },
+        { time: "07:00 AM – 08:00 AM", activity: "Breakfast" },
+        { time: "09:00 AM – 03:00 PM", activity: "College" },
+        { time: "03:00 PM – 04:00 PM", activity: "Lunch & Rest" },
+        { time: "04:00 PM – 06:00 PM", activity: "Java" },
+        { time: "06:00 PM – 07:00 PM", activity: "DSA" },
+        { time: "07:00 PM – 08:00 PM", activity: "Dinner" },
+        { time: "08:00 PM – 09:30 PM", activity: "College Revision" },
+        { time: "09:30 PM – 10:30 PM", activity: "Practice Java Programs" }
     ],
     "Wednesday": [
-        { time: "09:00 - 11:30", activity: "S & S (Signals and Systems): Solve problems on system properties, Fourier transforms, and Z-transforms. Focus on step-by-step mathematical derivations." },
-        { time: "11:30 - 12:00", activity: "Break" },
-        { time: "12:00 - 14:00", activity: "OS (Operating Systems): Continue with deadlocks, file systems, and disk scheduling algorithms." },
-        { time: "14:00 - 15:00", activity: "Lunch Break" },
-        { time: "15:00 - 17:00", activity: "OS Lab Revision: Practice Unix/Linux shell scripting and system calls (like fork()). Understand CPU scheduling program implementations." }
+        { time: "06:00 AM – 07:00 AM", activity: "Workout" },
+        { time: "09:00 AM – 03:00 PM", activity: "College" },
+        { time: "03:30 PM – 05:30 PM", activity: "Java Project" },
+        { time: "05:30 PM – 06:30 PM", activity: "DSA" },
+        { time: "07:00 PM – 08:00 PM", activity: "Dinner" },
+        { time: "08:00 PM – 09:30 PM", activity: "Revision" },
+        { time: "09:30 PM – 10:30 PM", activity: "Coding Practice" }
     ],
     "Thursday": [
-        { time: "09:00 - 11:30", activity: "DAA (Design and Analysis of Algorithms): Dive into Dynamic Programming, Backtracking, and Graph Algorithms (BFS, DFS, Dijkstra's)." },
-        { time: "11:30 - 12:00", activity: "Break" },
-        { time: "12:00 - 14:00", activity: "Professional Elective-III: DAR (Data Analytics using R): Review data preprocessing, statistical analysis techniques, and R programming syntax/libraries." },
-        { time: "14:00 - 15:00", activity: "Lunch Break" },
-        { time: "15:00 - 17:00", activity: "ALC (Automata Languages and Computation): Focus on CFGs, PDAs, and Turing Machines." }
+        { time: "06:00 AM – 07:00 AM", activity: "Workout" },
+        { time: "09:00 AM – 04:00 PM", activity: "College" },
+        { time: "04:30 PM – 05:30 PM", activity: "Rest" },
+        { time: "05:30 PM – 07:00 PM", activity: "DSA" },
+        { time: "07:00 PM – 08:00 PM", activity: "Dinner" },
+        { time: "08:00 PM – 10:00 PM", activity: "Java" }
     ],
     "Friday": [
-        { time: "09:00 - 11:00", activity: "EM-IV (Engineering Mathematics - IV): Revise week topics and solve previous years' university question papers." },
-        { time: "11:00 - 13:00", activity: "S & S (Signals and Systems): Solve continuous-time and discrete-time signal equations." },
-        { time: "13:00 - 14:00", activity: "Lunch Break" },
-        { time: "14:00 - 16:00", activity: "Professional Elective-III: DAR (Data Analytics using R): Practice writing R scripts for data modeling and visualization." },
-        { time: "16:00 - 17:00", activity: "MEA (Managerial Economics & Accountancy): Read theoretical units and review financial statement analysis formats." }
+        { time: "06:00 AM – 07:00 AM", activity: "Workout" },
+        { time: "09:00 AM – 03:00 PM", activity: "College" },
+        { time: "03:30 PM – 05:30 PM", activity: "Java" },
+        { time: "05:30 PM – 06:30 PM", activity: "DSA" },
+        { time: "07:00 PM – 08:00 PM", activity: "Dinner" },
+        { time: "08:00 PM – 09:30 PM", activity: "College Work" },
+        { time: "09:30 PM – 10:30 PM", activity: "Trading Basics (Optional)" }
     ],
     "Saturday": [
-        { time: "09:00 - 12:00", activity: "Weak Subject Deep Dive: Focus entirely on the subject that gave the most trouble this week (e.g., ALC or DAA)." },
-        { time: "12:00 - 13:00", activity: "Break" },
-        { time: "13:00 - 16:00", activity: "Previous Year Question (PYQ) Mock Test: Attempt an Osmania University exam paper in a distraction-free environment." }
+        { time: "06:30 AM – 07:30 AM", activity: "Workout" },
+        { time: "09:00 AM – 12:00 PM", activity: "Java Project" },
+        { time: "01:00 PM – 03:00 PM", activity: "DSA" },
+        { time: "03:00 PM – 04:00 PM", activity: "Break" },
+        { time: "04:00 PM – 06:00 PM", activity: "Resume / GitHub / Internship Preparation" },
+        { time: "Evening", activity: "Relax or Friends" }
     ],
     "Sunday": [
-        { time: "06:00 AM – 06:30 AM", activity: "Wake up + Fresh up" },
-        { time: "06:30 AM – 08:30 AM", activity: "Full Weekly Revision (All Subjects)" },
-        { time: "08:30 AM – 09:00 AM", activity: "Breakfast" },
-        { time: "09:00 AM – 11:00 AM", activity: "Previous Year Questions Practice" },
-        { time: "11:00 AM – 12:30 PM", activity: "Mini Project / Internship Skill Learning" },
-        { time: "12:30 PM – 01:00 PM", activity: "Short Break" },
-        { time: "01:00 PM – 02:00 PM", activity: "Lunch" },
-        { time: "02:00 PM – 04:00 PM", activity: "Resume Building + GitHub + Certification Courses" },
-        { time: "04:00 PM – 05:30 PM", activity: "Next Week Planning + Notes Arrangement" },
-        { time: "05:30 PM – 06:30 PM", activity: "Relax + Family Time" },
-        { time: "07:00 PM – 09:00 PM", activity: "Walking" },
-        { time: "09:00 PM – 09:30 PM", activity: "Dinner" },
-        { time: "09:30 PM – 11:00 PM", activity: "Light Revision + Monday Preparation" },
-        { time: "11:00 PM", activity: "Sleep" }
+        { time: "06:00 AM – 07:00 AM", activity: "Workout" },
+        { time: "09:00 AM – 12:00 PM", activity: "Revise everything studied during the week" },
+        { time: "01:00 PM – 03:00 PM", activity: "Solve 5-10 DSA problems" },
+        { time: "03:00 PM – 05:00 PM", activity: "Continue your Java project" },
+        { time: "05:00 PM – 06:00 PM", activity: "Update GitHub" },
+        { time: "06:00 PM – 07:00 PM", activity: "Plan the next week" }
     ]
 };
 
