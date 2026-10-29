@@ -567,6 +567,7 @@ function updateCharts(stats) {
   const pieCanvas = document.getElementById('pie-chart');
   const barCanvas = document.getElementById('bar-chart');
   if (!pieCanvas || !barCanvas) return;
+  if (typeof Chart === 'undefined') return;
 
   const ctxPie = pieCanvas.getContext('2d');
   const ctxBar = barCanvas.getContext('2d');
