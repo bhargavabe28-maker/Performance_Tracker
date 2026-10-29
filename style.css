@@ -377,6 +377,7 @@ body {
 .task-status-btns {
   display: flex;
   gap: 8px;
+  flex-wrap: wrap;
 }
 
 .status-btn {
@@ -413,6 +414,79 @@ body {
   border-color: var(--danger);
 }
 
+.delete-btn {
+  padding: 6px 10px;
+  border: 1px solid var(--glass-border);
+  background: white;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+[data-theme="dark-mode"] .delete-btn {
+  background: #334155;
+  color: white;
+}
+
+.task-main {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 76%;
+}
+
+.task-line1 {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.task-time {
+  font-weight: 700;
+  color: var(--primary);
+  font-size: 0.85rem;
+}
+
+.task-chip {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: rgba(99, 102, 241, 0.12);
+  color: var(--primary);
+}
+
+.chip-fixed {
+  background: rgba(239, 68, 68, 0.12);
+  color: var(--danger);
+}
+
+.chip-flex {
+  background: rgba(16, 185, 129, 0.12);
+  color: var(--success);
+}
+
+.priority-high {
+  background: rgba(239, 68, 68, 0.12);
+  color: var(--danger);
+}
+
+.priority-medium {
+  background: rgba(245, 158, 11, 0.12);
+  color: var(--warning);
+}
+
+.priority-low {
+  background: rgba(16, 185, 129, 0.12);
+  color: var(--success);
+}
+
+.task-sub {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
 /* Dashboard */
 .stats-grid {
   display: grid;
@@ -444,6 +518,41 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 30px;
+}
+
+.weekly-insights {
+  margin-top: 25px;
+}
+
+.insight-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.insight-card {
+  background: rgba(255, 255, 255, 0.35);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 12px;
+  font-size: 0.85rem;
+}
+
+[data-theme="dark-mode"] .insight-card {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.review-box {
+  background: rgba(255, 255, 255, 0.35);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 14px;
+  font-size: 0.9rem;
+}
+
+[data-theme="dark-mode"] .review-box {
+  background: rgba(0, 0, 0, 0.2);
 }
 
 @media (max-width: 768px) {
@@ -646,6 +755,16 @@ body {
 
   .auth-card {
     padding: 25px;
+  }
+
+  .task-main {
+    max-width: 100%;
+  }
+
+  .task-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
   }
 }
 
