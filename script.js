@@ -16,6 +16,7 @@ const STATUS = {
   NOT_DONE: 'not-done',
 };
 
+const TIMETABLE_VERSION = 'structured-v1';
 const DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
 const CATEGORY_COLORS = {
@@ -176,6 +177,11 @@ document.addEventListener('DOMContentLoaded', async () => {
   setupTaskListeners();
   setupDateNavigation();
   setupTimetableListeners();
+
+  if (localStorage.getItem('timetable-version') !== TIMETABLE_VERSION) {
+    localStorage.setItem('timetable', JSON.stringify(defaultTimetable));
+    localStorage.setItem('timetable-version', TIMETABLE_VERSION);
+  }
 
   const currentTT = await getTimetable();
   const hasAnyData = Object.values(currentTT).some((day) => Array.isArray(day) && day.length > 0);
